@@ -1,5 +1,5 @@
 WITH days(day) AS (
-  VALUES ( 'Monday' ), ( 'Tuesday' ), ( 'Wednesday' ), ( 'Thursday' ), ( 'Friday' )
+  VALUES ( 'Monday' ), ( 'Tuesday' ), ( 'Wednesday' ), ( 'Thursday' ), ( 'Friday' ), ( 'Saturday')
 )
 INSERT INTO days (name)
 SELECT day FROM days;
@@ -37,6 +37,9 @@ SELECT 4 as day_id, interviewers.interviewer_id FROM ( SELECT id AS interviewer_
 
 INSERT INTO available_interviewers (day_id, interviewer_id)
 SELECT 5 as day_id, interviewers.interviewer_id FROM ( SELECT id AS interviewer_id FROM interviewers ORDER BY RANDOM() LIMIT 5 ) interviewers;
+
+INSERT INTO available_interviewers (day_id, interviewer_id)
+SELECT 6 as day_id, interviewers.interviewer_id FROM ( SELECT id AS interviewer_id FROM interviewers ORDER BY RANDOM() LIMIT 5 ) interviewers;
 
 WITH
 appointments AS (

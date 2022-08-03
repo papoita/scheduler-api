@@ -47,6 +47,8 @@ module.exports = function application(
       read(path.resolve(__dirname, `db/schema/${ENV}.sql`))
     ])
       .then(([create, seed]) => {
+        console.log("seed", seed);
+        console.log("ENV", ENV);
         app.get("/api/debug/reset", (request, response) => {
           db.query(create)
             .then(() => db.query(seed))
